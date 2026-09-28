@@ -6,7 +6,7 @@ Visa dates, evidence, client files and the Monday review in a database you own. 
 | --- | --- | --- |
 | Free source. Follow the quick start. | Your fields, rules, reports, data migration and a web interface or different stack if needed. | Installed, connected and operated through Omni by Enterprise DNA. One setup fee, then a retainer. |
 
-[Talk to Sam](https://enterprisedna.co/omni/book?offer=replace-software&utm_campaign=migration-manager&utm_medium=readme) · [Instead of Migration Manager](https://enterprisedna.co/omni/instead-of/migration-manager)
+[Talk to Sam](https://enterprisedna.co/omni/book?offer=replace-software&utm_campaign=migration-manager&utm_medium=readme) · [Instead of Migration Manager](https://enterprisedna.co/omni/instead-of/migration-manager?utm_source=github&utm_medium=readme&utm_campaign=migration-manager)
 
 Works with Claude Code, Codex, OpenCode or Cursor. Read AGENTS.md and CLAUDE.md.
 
