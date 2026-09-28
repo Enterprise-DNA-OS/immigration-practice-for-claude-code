@@ -6,15 +6,39 @@
     "sections": [
       {
         "title": "Deadline queue",
-        "sql": "select * from deadline_queue order by due_on"
+        "sql": "select * from deadline_queue order by due_on",
+        "columns": [
+          "matter",
+          "client",
+          "name",
+          "due_on",
+          "days_left",
+          "adviser"
+        ]
       },
       {
         "title": "Evidence chase",
-        "sql": "select * from evidence_queue order by due_on"
+        "sql": "select * from evidence_queue order by due_on",
+        "columns": [
+          "matter",
+          "client",
+          "name",
+          "due_on",
+          "received_on",
+          "file_ref"
+        ]
       },
       {
         "title": "Open matters",
-        "sql": "select * from matter_board where status='open' order by next_due"
+        "sql": "select * from matter_board where status='open' order by next_due",
+        "columns": [
+          "name",
+          "client",
+          "adviser",
+          "next_due",
+          "quiet_days",
+          "evidence_gaps"
+        ]
       }
     ]
   },
@@ -24,7 +48,16 @@
     "sections": [
       {
         "title": "Invoices outstanding",
-        "sql": "select * from fee_balances order by currency,overdue_days desc"
+        "sql": "select * from fee_balances order by currency,overdue_days desc",
+        "columns": [
+          "name",
+          "matter",
+          "client",
+          "currency",
+          "balance",
+          "due_on",
+          "overdue_days"
+        ]
       },
       {
         "title": "Totals by currency",
@@ -38,7 +71,16 @@
     "sections": [
       {
         "title": "Review dates, never deletion instructions",
-        "sql": "select * from retention_register order by name"
+        "sql": "select * from retention_register order by name",
+        "columns": [
+          "name",
+          "jurisdiction",
+          "status",
+          "last_action_on",
+          "closed_on",
+          "archive_until",
+          "required_until"
+        ]
       }
     ]
   }
