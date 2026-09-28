@@ -1,43 +1,51 @@
-# Immigration Practice for Claude Code: operating instructions
-
-This file is the brain. Claude Code reads it at the start of every session. It says who this is for, how work gets done, and the one right way to do each recurring job.
+# Immigration Practice for Claude Code
 
 ## Who this is for
 
-- **Business:** [YOUR BUSINESS]
-- **Operator:** [YOUR NAME], [your role]
-- **What matters most:** [the one or two outcomes you care about]
+Harbour Immigration Practice is fictional demo data. Replace this paragraph with the operator's firm, jurisdiction, role and weekly priorities before real use. The base serves AU registered migration agents and NZ licensed immigration advisers. It does not decide eligibility or provide immigration advice.
 
-Fill this in once. A worker with context knows. A worker without it guesses.
+## Rules
 
-## How to work
+Read records before answering. One CLI: `npm run immigration -- help --json`. Never invent records or infer missing legal dates. Ambiguous matches list candidates and exit 1. Commands live in `.claude/commands/` and apply equally to Claude Code, Codex, OpenCode and Cursor.
 
-1. **Take a brief, not a script.** The operator describes the outcome. You run the right command and present the answer.
-2. **Read before you write.** Before drafting anything about a record, read its full history first.
-3. **Plain language.** Short sentences. No filler. Numbers in tables.
-4. **Silent success, loud problems.** No play-by-play. Say what broke and what you did about it.
-5. **Stop at the line.** Anything that sends, deletes, or faces a customer waits for a yes in this session.
+Nothing sends, lodges, runs VEVO, takes money or holds trust funds. Record a government submission only after the adviser has performed it elsewhere and supplied its reference. Every letter is a draft for adviser review. Preserve source notices and complete document files in secure storage.
 
-## Routing table: one right way for each recurring job
+Use the CLI for ordinary changes so checks and audit events run. Notes are append-only. Never bypass a failed write with direct SQL. No deletion command exists. Retention review dates do not authorise destruction. Migrations are numbered and tested in isolation first.
 
-| When the operator asks for... | Use this |
-|---|---|
-| <!-- TODO(author): one row per slash command --> | `/...` |
+## Routes
 
-If an ask fits nothing here, run the CLI directly (`npm run <cli> -- --help`) and then propose a new command for it.
+- List the client register: `/clients`.
+- Check adviser assignments and recorded licence dates: `/advisers`.
+- Review the open matter board: `/matters`.
+- Read a complete client matter: `/matter`.
+- Review preparation, lodgement and decisions: `/applications`.
+- Check every open recorded deadline: `/key-dates`.
+- Review recorded visa expiries within sixty days: `/visa-expiries`.
+- Chase missing or unverified evidence: `/evidence-chase`.
+- Find overdue client updates: `/client-updates`.
+- Review outstanding practice fees by currency: `/fee-balances`.
+- Check original documents still held: `/originals-return`.
+- Review retention floors and archive dates: `/retention`.
+- Review adviser workload and evidence gaps: `/workload`.
+- Prioritise overdue dates, quiet files and evidence: `/attention`.
+- Review the cited file checks: `/compliance`.
+- Write the Monday practice review from current records: `/weekly-review`.
+- Add a validated record: `/add`.
+- Update an existing record with an audit entry: `/update`.
+- Record a material conversation or completed client update: `/log`.
+- Record completion with evidence: `/complete-deadline`.
+- Record a lodgement already performed outside this system: `/record-lodgement`.
+- Record an actual received decision: `/record-decision`.
+- Close a finished matter and set its retention review: `/close-matter`.
+- Draft a client update for adviser review: `/draft-client-update`.
+- Draft an evidence request for adviser review: `/draft-evidence-request`.
+- Preview and import mapped Migration Manager reports: `/import`.
+- Export all structured records to a new snapshot: `/export`.
+- Change fields or policies: `/customise`.
+- Add a printable dashboard: `/new-view`.
 
-## Hard rules
+## Storage
 
-- Never send email or messages from here. Draft to `drafts/`, a person sends.
-- Never delete records without an explicit yes in this session. Prefer marking closed or archived.
-- Never invent a record. If a name is ambiguous, list the candidates and ask.
-- The database is the source of truth. If the answer is not in it, say so.
+PGlite in .data/db is for one local operator. DATABASE_URL selects shared Postgres. Do not seed production. npm test uses a temporary database and output folder. Brand, views and documents are configured in brand.json, views.json and documents.json. Keep drafts, exports, database files and secrets out of Git.
 
-## Where things live
-
-- `scripts/` the CLI. `scripts/lib/db.mjs` picks `DATABASE_URL` (Postgres, Supabase) or the embedded database in `.data/`.
-- `supabase/migrations/` the schema, plain SQL. `npm run migrate` applies it.
-- `.claude/commands/` the slash commands. Add one every time the same ask comes twice.
-- `docs/` the thesis and the guide for moving off Migration Manager.
-
-Built by Enterprise DNA. Installed and run for you as part of Omni: https://enterprisedna.co/omni/instead-of/migration-manager
+Omni by Enterprise DNA: https://enterprisedna.co/omni/book?offer=replace-software&utm_campaign=migration-manager&utm_medium=readme

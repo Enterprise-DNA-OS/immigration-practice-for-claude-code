@@ -1,13 +1,44 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Immigration Practice for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Immigration practice week",
+    "subtitle": "Recorded dates and evidence, for adviser review",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Deadline queue",
+        "sql": "select * from deadline_queue order by due_on"
+      },
+      {
+        "title": "Evidence chase",
+        "sql": "select * from evidence_queue order by due_on"
+      },
+      {
+        "title": "Open matters",
+        "sql": "select * from matter_board where status='open' order by next_due"
+      }
+    ]
+  },
+  {
+    "name": "fees",
+    "title": "Practice fee balances",
+    "sections": [
+      {
+        "title": "Invoices outstanding",
+        "sql": "select * from fee_balances order by currency,overdue_days desc"
+      },
+      {
+        "title": "Totals by currency",
+        "sql": "select currency,sum(balance) balance from fee_balances group by currency"
+      }
+    ]
+  },
+  {
+    "name": "retention",
+    "title": "File retention review",
+    "sections": [
+      {
+        "title": "Review dates, never deletion instructions",
+        "sql": "select * from retention_register order by name"
       }
     ]
   }

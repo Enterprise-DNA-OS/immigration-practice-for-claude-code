@@ -1,24 +1,11 @@
 # Why there is no front end
 
-Migration Manager is a database with a subscription. The tables underneath it are ordinary: a few entities, a few relationships, a handful of workflows you repeat every week. What you pay for is the layer on top that lets people who do not write SQL get at those tables. Screens, filters, dashboards, forms.
+The weekly work is checking records, dates and missing evidence. A database and commands can answer those questions directly. Read-only HTML gives the principal a printable overview without another application to operate.
 
-That layer used to be the whole product, because talking to a database was hard. It is not hard any more. Open this folder in Claude Code, describe what you want, and it writes the query, runs it, and explains the answer. Ask a question the dashboard never had a chart for and you still get an answer.
+Migration Manager also supplies client portals, form filling, VEVO searches, accounting integrations and a maintained template library. Those are separate capabilities. This base does not reproduce them or claim its records establish immigration status.
 
-## What you gain
+A screen provides mobile capture, drag and drop, guided forms and live collaboration. This version has none of those. The local database can run offline, but agent access and shared databases depend on their own connection. There is no mobile offline sync. Choose this version for a practice comfortable reviewing records through a coding agent. Enterprise DNA can build a different interface around the same records.
 
-- **Better answers.** A dashboard shows what the vendor decided to chart. Here you ask your own question, in your own words, and get it answered against your own data.
-- **No seats.** Everyone who needs to look can look. The bill does not grow with headcount.
-- **Your data in your Postgres.** Plain tables. Back them up, query them from anything, leave any time. There is no export step because there is nothing to leave.
-- **A process that matches you.** When your way of working changes, you add a command. You do not wait for a feature request to clear.
+The embedded database is for one local operator. A shared Postgres database needs practice-managed access controls, backups and secure document storage. All users with database credentials can read the records those credentials allow. There is no application login or per-client access layer here.
 
-## What you give up
-
-- **A visual board.** Stages are a table you ask about, not cards you drag.
-- **A phone app.** It runs where Claude Code runs.
-- **A vendor help desk.** This is open source. Enterprise DNA supports the installed version for businesses that want someone to call.
-
-## Who this fits
-
-Small teams who already use Claude Code, or who would rather learn to ask than learn another interface. If your team needs a screen to look at all day, keep Migration Manager. If you need the answers more than the screens, this is cheaper, faster and yours.
-
-Installed and run for you: https://enterprisedna.co/omni/instead-of/migration-manager
+Omni by Enterprise DNA provides installation, customisation and operation: https://enterprisedna.co/omni/book?offer=replace-software&utm_campaign=migration-manager&utm_medium=readme

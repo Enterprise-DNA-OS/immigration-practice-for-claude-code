@@ -1,0 +1,12 @@
+[
+  "Which visa expiries are close while the matter has been quiet?",
+  "Which requested evidence is overdue and who owns its matter?",
+  "Which received documents still need verification?",
+  "Which advisers have the most quiet files and evidence gaps?",
+  "Which clients have no recent recorded update?",
+  "Which original documents still need a recorded return?",
+  "Which lodged applications lack a copy reference?",
+  "Which files have archive dates shorter than the recorded retention floor?",
+  "Which practice fees are overdue, keeping AUD and NZD separate?",
+  "What transfers to another adviser when a matter changes hands?"
+]

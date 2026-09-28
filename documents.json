@@ -1,11 +1,86 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "client-status",
+    "title": "Client status report: DRAFT",
+    "for_each": "select id,name from matters order by name",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Matter",
+        "sql": "select b.name,b.client,b.visa_type,b.adviser,b.next_due from matter_board b where id=$1"
+      },
+      {
+        "title": "Applications",
+        "sql": "select name,status,reference,lodged_on,outcome from applications where matter_id=$1"
+      },
+      {
+        "title": "Dates recorded from source notices",
+        "sql": "select name,kind,due_on,source_ref from deadlines where matter_id=$1 and done_on is null",
+        "note": "Adviser checks source dates before giving advice. Nothing is lodged or sent."
+      }
+    ]
+  },
+  {
+    "name": "evidence-request",
+    "title": "Evidence request: DRAFT",
+    "for_each": "select id,name from matters order by name",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Client and matter",
+        "sql": "select name,client,visa_type from matter_board where id=$1"
+      },
+      {
+        "title": "Required evidence",
+        "sql": "select name,due_on,received_on,verified_on from evidence where matter_id=$1 and required and verified_on is null",
+        "note": "Items received but unverified need adviser review, not another request to the client."
+      }
+    ]
+  },
+  {
+    "name": "file-index",
+    "title": "Client file index",
+    "for_each": "select id,name from matters order by name",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Agreement and retention",
+        "sql": "select name,jurisdiction,agreement_ref,agreement_on,fee_basis,archive_until from matters where id=$1"
+      },
+      {
+        "title": "Application copies",
+        "sql": "select name,reference,copy_ref from applications where matter_id=$1"
+      },
+      {
+        "title": "Evidence and original returns",
+        "sql": "select name,file_ref,received_on,returned_on,return_ref from evidence where matter_id=$1"
+      },
+      {
+        "title": "Communications",
+        "sql": "select happened_on,kind,author,body,confirmed_ref from notes where matter_id=$1 order by happened_on"
+      },
+      {
+        "title": "Invoices and receipts",
+        "sql": "select name,currency,amount,paid,invoice_ref,receipt_ref from fees where matter_id=$1",
+        "note": "References point to files in your secure archive. This index does not contain the document files."
+      }
+    ]
+  },
+  {
+    "name": "fee-statement",
+    "title": "Practice fee statement: DRAFT",
+    "for_each": "select id,name from matters order by name",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Client and matter",
+        "sql": "select name,client from matter_board where id=$1"
+      },
+      {
+        "title": "Recorded invoices",
+        "sql": "select name,currency,amount,paid,amount-paid balance,due_on,invoice_ref,receipt_ref from fees where matter_id=$1",
+        "note": "Administrative fee records only. No trust ledger, payment handling or tax invoice certification."
+      }
     ]
   }
 ]
